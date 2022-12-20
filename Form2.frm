@@ -1,5 +1,6 @@
 VERSION 5.00
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
+Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "MSMASK32.OCX"
 Begin VB.Form Form2 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Tela Principal"
@@ -12,55 +13,82 @@ Begin VB.Form Form2
    ScaleHeight     =   7965
    ScaleWidth      =   11925
    StartUpPosition =   2  'CenterScreen
+   Begin VB.CommandButton cmdTeste 
+      Caption         =   "Teste"
+      Height          =   675
+      Left            =   9510
+      TabIndex        =   52
+      Top             =   7140
+      Width           =   1005
+   End
+   Begin VB.CommandButton cmdConsultar 
+      Caption         =   "Consultar"
+      Height          =   795
+      Left            =   3810
+      TabIndex        =   51
+      Top             =   6870
+      Width           =   1215
+   End
+   Begin VB.CommandButton cmdLimpar 
+      Caption         =   "Limpar"
+      Height          =   795
+      Left            =   5055
+      TabIndex        =   50
+      Top             =   6870
+      Width           =   1215
+   End
+   Begin VB.CommandButton cmdCadastrar 
+      Caption         =   "Cadastrar"
+      Height          =   795
+      Left            =   6285
+      TabIndex        =   49
+      Top             =   6870
+      Width           =   1215
+   End
    Begin TabDlg.SSTab SSTab1 
-      Height          =   7695
+      Height          =   6285
       Left            =   60
       TabIndex        =   0
       Top             =   210
-      Width           =   11790
-      _ExtentX        =   20796
-      _ExtentY        =   13573
+      Width           =   11670
+      _ExtentX        =   20585
+      _ExtentY        =   11086
       _Version        =   393216
       Tabs            =   6
+      Tab             =   1
       TabsPerRow      =   6
       TabHeight       =   520
       TabCaption(0)   =   "Cliente"
       TabPicture(0)   =   "Form2.frx":0000
-      Tab(0).ControlEnabled=   -1  'True
+      Tab(0).ControlEnabled=   0   'False
       Tab(0).Control(0)=   "lblCliente"
-      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).Control(1)=   "lblEndereco"
-      Tab(0).Control(1).Enabled=   0   'False
       Tab(0).Control(2)=   "lblCpf"
-      Tab(0).Control(2).Enabled=   0   'False
       Tab(0).Control(3)=   "lblNomeCliente"
-      Tab(0).Control(3).Enabled=   0   'False
       Tab(0).Control(4)=   "txtCliente"
-      Tab(0).Control(4).Enabled=   0   'False
       Tab(0).Control(5)=   "txtNomeCliente"
-      Tab(0).Control(5).Enabled=   0   'False
       Tab(0).Control(6)=   "txtEndereco"
-      Tab(0).Control(6).Enabled=   0   'False
       Tab(0).Control(7)=   "txtCpf"
-      Tab(0).Control(7).Enabled=   0   'False
-      Tab(0).Control(8)=   "cmdConsultar"
-      Tab(0).Control(8).Enabled=   0   'False
-      Tab(0).Control(9)=   "cmdLimpar"
-      Tab(0).Control(9).Enabled=   0   'False
-      Tab(0).Control(10)=   "cmdCadastrar"
-      Tab(0).Control(10).Enabled=   0   'False
-      Tab(0).ControlCount=   11
+      Tab(0).ControlCount=   8
       TabCaption(1)   =   "Pet"
       TabPicture(1)   =   "Form2.frx":001C
-      Tab(1).ControlEnabled=   0   'False
+      Tab(1).ControlEnabled=   -1  'True
       Tab(1).Control(0)=   "Label1"
+      Tab(1).Control(0).Enabled=   0   'False
       Tab(1).Control(1)=   "Label2"
+      Tab(1).Control(1).Enabled=   0   'False
       Tab(1).Control(2)=   "Label3"
+      Tab(1).Control(2).Enabled=   0   'False
       Tab(1).Control(3)=   "txtNas"
+      Tab(1).Control(3).Enabled=   0   'False
       Tab(1).Control(4)=   "txtNome"
+      Tab(1).Control(4).Enabled=   0   'False
       Tab(1).Control(5)=   "txtRaca"
+      Tab(1).Control(5).Enabled=   0   'False
       Tab(1).Control(6)=   "txtSexo"
+      Tab(1).Control(6).Enabled=   0   'False
       Tab(1).Control(7)=   "txtNascimento"
+      Tab(1).Control(7).Enabled=   0   'False
       Tab(1).ControlCount=   8
       TabCaption(2)   =   "Pet 2"
       TabPicture(2)   =   "Form2.frx":0038
@@ -110,194 +138,177 @@ Begin VB.Form Form2
       Tab(5).Control(6)=   "txtRaca5"
       Tab(5).Control(7)=   "txtNome5"
       Tab(5).ControlCount=   8
+      Begin MSMask.MaskEdBox txtNascimento 
+         Height          =   375
+         Left            =   3990
+         TabIndex        =   48
+         Top             =   4000
+         Width           =   1400
+         _ExtentX        =   2461
+         _ExtentY        =   661
+         _Version        =   393216
+         MaxLength       =   10
+         Mask            =   "##/##/####"
+         PromptChar      =   "_"
+      End
       Begin VB.TextBox txtNome2 
          Height          =   375
          Left            =   -71010
-         TabIndex        =   47
+         TabIndex        =   43
          Top             =   1600
          Width           =   3075
       End
       Begin VB.TextBox txtRaca2 
          Height          =   375
          Left            =   -71010
-         TabIndex        =   46
+         TabIndex        =   42
          Top             =   2400
          Width           =   3075
       End
       Begin VB.TextBox txtSexo2 
          Height          =   375
          Left            =   -71010
-         TabIndex        =   45
+         TabIndex        =   41
          Top             =   3200
          Width           =   3075
       End
       Begin VB.TextBox txtNascimento2 
          Height          =   375
          Left            =   -71010
-         TabIndex        =   44
+         TabIndex        =   40
          Top             =   4000
-         Width           =   3075
+         Width           =   1400
       End
       Begin VB.TextBox txtNome5 
          Height          =   375
          Left            =   -71010
-         TabIndex        =   39
+         TabIndex        =   35
          Top             =   1600
          Width           =   3075
       End
       Begin VB.TextBox txtRaca5 
          Height          =   375
          Left            =   -71010
-         TabIndex        =   38
+         TabIndex        =   34
          Top             =   2400
          Width           =   3075
       End
       Begin VB.TextBox txtSexo5 
          Height          =   375
          Left            =   -71010
-         TabIndex        =   37
+         TabIndex        =   33
          Top             =   3200
          Width           =   3075
       End
       Begin VB.TextBox txtNascimento5 
          Height          =   375
          Left            =   -71010
-         TabIndex        =   36
+         TabIndex        =   32
          Top             =   4000
-         Width           =   3075
+         Width           =   1400
       End
       Begin VB.TextBox txtNome4 
          Height          =   375
          Left            =   -71010
-         TabIndex        =   31
+         TabIndex        =   27
          Top             =   1600
          Width           =   3075
       End
       Begin VB.TextBox txtRaca4 
          Height          =   375
          Left            =   -71010
-         TabIndex        =   30
+         TabIndex        =   26
          Top             =   2400
          Width           =   3075
       End
       Begin VB.TextBox txtSexo4 
          Height          =   375
          Left            =   -71010
-         TabIndex        =   29
+         TabIndex        =   25
          Top             =   3200
          Width           =   3075
       End
       Begin VB.TextBox txtNascimento4 
          Height          =   375
          Left            =   -71010
-         TabIndex        =   28
+         TabIndex        =   24
          Top             =   4000
-         Width           =   3075
+         Width           =   1400
       End
       Begin VB.TextBox txtNome3 
          Height          =   375
          Left            =   -71010
-         TabIndex        =   23
+         TabIndex        =   19
          Top             =   1600
          Width           =   3075
       End
       Begin VB.TextBox txtRaca3 
          Height          =   375
          Left            =   -71010
-         TabIndex        =   22
+         TabIndex        =   18
          Top             =   2400
          Width           =   3075
       End
       Begin VB.TextBox txtSexo3 
          Height          =   375
          Left            =   -71010
-         TabIndex        =   21
+         TabIndex        =   17
          Top             =   3200
          Width           =   3075
       End
       Begin VB.TextBox txtNascimento3 
          Height          =   375
          Left            =   -71010
-         TabIndex        =   20
+         TabIndex        =   16
          Top             =   4000
-         Width           =   3075
-      End
-      Begin VB.TextBox txtNascimento 
-         Height          =   375
-         Left            =   -71010
-         TabIndex        =   15
-         Top             =   4000
-         Width           =   3075
+         Width           =   1400
       End
       Begin VB.TextBox txtSexo 
          Height          =   375
-         Left            =   -71010
-         TabIndex        =   14
+         Left            =   3990
+         TabIndex        =   11
          Top             =   3200
          Width           =   3075
       End
       Begin VB.TextBox txtRaca 
          Height          =   375
-         Left            =   -71010
-         TabIndex        =   13
+         Left            =   3990
+         TabIndex        =   10
          Top             =   2400
          Width           =   3075
       End
       Begin VB.TextBox txtNome 
          Height          =   375
-         Left            =   -71010
-         TabIndex        =   12
+         Left            =   3990
+         TabIndex        =   9
          Top             =   1600
          Width           =   3075
       End
-      Begin VB.CommandButton cmdCadastrar 
-         Caption         =   "Cadastrar"
-         Height          =   795
-         Left            =   6105
-         TabIndex        =   11
-         Top             =   6090
-         Width           =   1215
-      End
-      Begin VB.CommandButton cmdLimpar 
-         Caption         =   "Limpar"
-         Height          =   795
-         Left            =   4875
-         TabIndex        =   10
-         Top             =   6090
-         Width           =   1215
-      End
-      Begin VB.CommandButton cmdConsultar 
-         Caption         =   "Consultar"
-         Height          =   795
-         Left            =   3630
-         TabIndex        =   9
-         Top             =   6090
-         Width           =   1215
-      End
       Begin VB.TextBox txtCpf 
          Height          =   345
-         Left            =   3990
+         Left            =   -71010
+         MaxLength       =   11
          TabIndex        =   8
          Top             =   2400
          Width           =   1995
       End
       Begin VB.TextBox txtEndereco 
          Height          =   345
-         Left            =   3990
+         Left            =   -71010
          TabIndex        =   6
          Top             =   4000
          Width           =   4145
       End
       Begin VB.TextBox txtNomeCliente 
          Height          =   345
-         Left            =   3990
+         Left            =   -71010
          TabIndex        =   5
          Top             =   3200
          Width           =   4145
       End
       Begin VB.TextBox txtCliente 
          Height          =   345
-         Left            =   3990
+         Left            =   -71010
          MaxLength       =   4
          TabIndex        =   1
          Top             =   1600
@@ -307,7 +318,7 @@ Begin VB.Form Form2
          Caption         =   "Nome"
          Height          =   255
          Left            =   -72150
-         TabIndex        =   51
+         TabIndex        =   47
          Top             =   1650
          Width           =   915
       End
@@ -315,7 +326,7 @@ Begin VB.Form Form2
          Caption         =   "Raça"
          Height          =   225
          Left            =   -72150
-         TabIndex        =   50
+         TabIndex        =   46
          Top             =   2445
          Width           =   915
       End
@@ -323,7 +334,7 @@ Begin VB.Form Form2
          Caption         =   "Sexo"
          Height          =   225
          Left            =   -72150
-         TabIndex        =   49
+         TabIndex        =   45
          Top             =   3255
          Width           =   915
       End
@@ -331,7 +342,7 @@ Begin VB.Form Form2
          Caption         =   "Nascimento"
          Height          =   255
          Left            =   -72150
-         TabIndex        =   48
+         TabIndex        =   44
          Top             =   4050
          Width           =   915
       End
@@ -339,7 +350,7 @@ Begin VB.Form Form2
          Caption         =   "Nome"
          Height          =   255
          Left            =   -72150
-         TabIndex        =   43
+         TabIndex        =   39
          Top             =   1650
          Width           =   915
       End
@@ -347,7 +358,7 @@ Begin VB.Form Form2
          Caption         =   "Raça"
          Height          =   225
          Left            =   -72150
-         TabIndex        =   42
+         TabIndex        =   38
          Top             =   2445
          Width           =   915
       End
@@ -355,7 +366,7 @@ Begin VB.Form Form2
          Caption         =   "Sexo"
          Height          =   225
          Left            =   -72150
-         TabIndex        =   41
+         TabIndex        =   37
          Top             =   3255
          Width           =   915
       End
@@ -363,7 +374,7 @@ Begin VB.Form Form2
          Caption         =   "Nascimento"
          Height          =   255
          Left            =   -72150
-         TabIndex        =   40
+         TabIndex        =   36
          Top             =   4050
          Width           =   915
       End
@@ -371,7 +382,7 @@ Begin VB.Form Form2
          Caption         =   "Nome"
          Height          =   255
          Left            =   -72150
-         TabIndex        =   35
+         TabIndex        =   31
          Top             =   1650
          Width           =   915
       End
@@ -379,7 +390,7 @@ Begin VB.Form Form2
          Caption         =   "Raça"
          Height          =   225
          Left            =   -72150
-         TabIndex        =   34
+         TabIndex        =   30
          Top             =   2445
          Width           =   915
       End
@@ -387,7 +398,7 @@ Begin VB.Form Form2
          Caption         =   "Sexo"
          Height          =   225
          Left            =   -72150
-         TabIndex        =   33
+         TabIndex        =   29
          Top             =   3255
          Width           =   915
       End
@@ -395,7 +406,7 @@ Begin VB.Form Form2
          Caption         =   "Nascimento"
          Height          =   255
          Left            =   -72150
-         TabIndex        =   32
+         TabIndex        =   28
          Top             =   4050
          Width           =   915
       End
@@ -403,7 +414,7 @@ Begin VB.Form Form2
          Caption         =   "Nome"
          Height          =   255
          Left            =   -72150
-         TabIndex        =   27
+         TabIndex        =   23
          Top             =   1650
          Width           =   915
       End
@@ -411,7 +422,7 @@ Begin VB.Form Form2
          Caption         =   "Raça"
          Height          =   225
          Left            =   -72150
-         TabIndex        =   26
+         TabIndex        =   22
          Top             =   2445
          Width           =   915
       End
@@ -419,7 +430,7 @@ Begin VB.Form Form2
          Caption         =   "Sexo"
          Height          =   225
          Left            =   -72150
-         TabIndex        =   25
+         TabIndex        =   21
          Top             =   3255
          Width           =   915
       End
@@ -427,46 +438,46 @@ Begin VB.Form Form2
          Caption         =   "Nascimento"
          Height          =   255
          Left            =   -72150
-         TabIndex        =   24
+         TabIndex        =   20
          Top             =   4050
          Width           =   915
       End
       Begin VB.Label txtNas 
          Caption         =   "Nascimento"
          Height          =   255
-         Left            =   -72150
-         TabIndex        =   19
+         Left            =   2850
+         TabIndex        =   15
          Top             =   4050
          Width           =   915
       End
       Begin VB.Label Label3 
          Caption         =   "Sexo"
          Height          =   225
-         Left            =   -72150
-         TabIndex        =   18
+         Left            =   2850
+         TabIndex        =   14
          Top             =   3255
          Width           =   915
       End
       Begin VB.Label Label2 
          Caption         =   "Raça"
          Height          =   225
-         Left            =   -72150
-         TabIndex        =   17
+         Left            =   2850
+         TabIndex        =   13
          Top             =   2445
          Width           =   915
       End
       Begin VB.Label Label1 
          Caption         =   "Nome"
          Height          =   255
-         Left            =   -72150
-         TabIndex        =   16
+         Left            =   2850
+         TabIndex        =   12
          Top             =   1650
          Width           =   915
       End
       Begin VB.Label lblNomeCliente 
          Caption         =   "Nome"
          Height          =   195
-         Left            =   2850
+         Left            =   -72150
          TabIndex        =   7
          Top             =   3255
          Width           =   915
@@ -474,7 +485,7 @@ Begin VB.Form Form2
       Begin VB.Label lblCpf 
          Caption         =   "CPF"
          Height          =   195
-         Left            =   2850
+         Left            =   -72150
          TabIndex        =   4
          Top             =   2445
          Width           =   915
@@ -482,7 +493,7 @@ Begin VB.Form Form2
       Begin VB.Label lblEndereco 
          Caption         =   "Endereço"
          Height          =   195
-         Left            =   2850
+         Left            =   -72150
          TabIndex        =   3
          Top             =   4050
          Width           =   915
@@ -490,7 +501,7 @@ Begin VB.Form Form2
       Begin VB.Label lblCliente 
          Caption         =   "Cliente"
          Height          =   195
-         Left            =   2850
+         Left            =   -72150
          TabIndex        =   2
          Top             =   1650
          Width           =   915
@@ -512,6 +523,8 @@ Private Sub cmdCadastrar_Click()
     Dim cliente As cliente
     Dim pet As pet
     Dim conn As Object
+    Dim petId As Integer
+    Dim dia, mes, ano, strData As String
     
     If txtNome.Text = "" Then
         cadPet = False
@@ -519,6 +532,8 @@ Private Sub cmdCadastrar_Click()
     
     Set pet = New pet
     Set cliente = New cliente
+    
+    txtCliente.Text = ""
     
     cliente.nome = UCase(Trim(txtNomeCliente.Text))
     cliente.cpf = UCase(Trim(txtCpf.Text))
@@ -531,7 +546,7 @@ Private Sub cmdCadastrar_Click()
     conn.Execute strQuery
     
     strQuery = "SELECT ID FROM Clientes "
-    strQuery = strQuery & "WHERE Nome = cliente.nome "
+    strQuery = strQuery & "WHERE Nome = '" & cliente.nome & "'"
     
     Set cursor = New ADODB.Recordset
     
@@ -542,23 +557,44 @@ Private Sub cmdCadastrar_Click()
     cursor.Close
     
     If Not cadPet Then
-    
+
         pet.nome = UCase(Trim(txtNome.Text))
         pet.raca = UCase(Trim(txtRaca.Text))
         pet.sexo = UCase(Trim(txtSexo.Text))
-        pet.nascimento = UCase(Trim(txtNascimento.Text))
         
-        strQuery = "INSERT INTO pets (nome, raca,sexo,nascimento) "
-        strQuery = strQuery & "VALUES('" & pet.nome & "','" & pet.raca & " ',' " & pet.sexo & " ',' " & pet.nascimento & ")' "
+        dia = Mid(UCase(Trim(txtNascimento.Text)), 1, 2)
+        mes = Mid(UCase(Trim(txtNascimento.Text)), 4, 2)
+        ano = Mid(UCase(Trim(txtNascimento.Text)), 7, 4)
+        
+        strData = ano & "-" & mes & "-" & dia
+
+        pet.nascimento = UCase(Trim(txtNascimento.Text))
+
+        strQuery = "INSERT INTO pets (nome, raca,sexo,datanascimento) "
+        strQuery = strQuery & "VALUES('" & pet.nome & "','" & pet.raca & " ',' " & pet.sexo & " ',' " & strData & "') "
+
+        conn.Execute strQuery
+
+        strQuery = "SELECT ID FROM Pets "
+        strQuery = strQuery & "WHERE Nome = '" & pet.nome & "' "
+        strQuery = strQuery & "AND Raca = '" & pet.raca & "' "
+        strQuery = strQuery & "AND DataNascimento = '" & strData & "' "
+
+        cursor.Open strQuery, AbreConn
+
+        petId = cursor.Fields(0).Value
+
+        cursor.Close
+        
+        strQuery = "INSERT INTO PetsDonos(Dono, Pet) "
+        strQuery = strQuery & "VALUES(" & txtCliente.Text & " , " & petId & ") "
         
         conn.Execute strQuery
-        
-        
-        
-        
-        
+
     End If
-    
+
+cmdLimpar_Click
+
 End Sub
 
 Private Sub cmdConsultar_Click()
@@ -681,7 +717,7 @@ Private Sub cmdLimpar_Click()
     txtNome.Text = ""
     txtRaca.Text = ""
     txtSexo.Text = ""
-    txtNascimento.Text = ""
+    txtNascimento.Text = "__/__/____"
     
     
     For i = 2 To 5
@@ -703,14 +739,22 @@ Private Sub cmdLimpar_Click()
         
 End Sub
 
+Private Sub cmdTeste_Click()
+    Dim dateContent As String
+    dateContent = strData
+    
+    txtNome.Text = "OK"
+    
+    MsgBox dateContent
+    
+End Sub
+
 Private Sub Form_Activate()
-    txtCliente.SetFocus
+    txtNomeCliente.SetFocus
 End Sub
 
 Private Sub Form_Load()
     cmdLimpar_Click
 End Sub
 
-Private Sub Text6_Change()
 
-End Sub
