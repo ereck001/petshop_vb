@@ -69,18 +69,47 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Dim cursor As ADODB.Recordset
 Dim dono  As String
-Dim pets, raca As String
+Dim pets, raca, strQuery As String
 
 Private Sub cmdLogin_Click()
 
-'If UCase(Trim(txtUsuario.Text)) = "ADMIN" And UCase(Trim(txtSenha.Text)) = "123" Then
+Dim usuario, senha As String
+Dim abrir, usuarioOk As Boolean
+
+Set cursor = New ADODB.Recordset
+
+strQuery = "SELECT * FROM Usuarios "
+
+cursor.Open strQuery, AbreConn
+
+abrir = False
+
+Do Until cursor.EOF
+
+    If UCase(Trim(txtUsuario.Text)) = cursor.Fields(1).Value And UCase(Trim(txtSenha.Text)) = cursor.Fields(2).Value Then
+        abrir = True
+    ElseIf (UCase(Trim(txtUsuario.Text)) = cursor.Fields(1).Value) And Not abrir Then
+        usuarioOk = True
+    End If
+    
+    cursor.MoveNext
+    
+Loop
+
+If usuarioOk Then
+        MsgBox "Senha incorreta! ", vbExclamation, " Erro de Login!"
+ElseIf Not abrir Then
+    MsgBox "Usuário não existe! ", vbExclamation, " Erro de Login!"
+End If
+
+
+cursor.Close
+
+If abrir Then
+
     Form2.Show
     Me.Hide
-'ElseIf (UCase(Trim(txtUsuario.Text)) = "ADMIN") Then
-'    MsgBox "Senha incorreta! ", vbExclamation, " Erro de Login!"
-'Else
-'    MsgBox "Usuário não existe! ", vbExclamation, " Erro de Login!"
-'End If
-
+    
+End If
 
 End Sub
