@@ -13,6 +13,22 @@ Begin VB.Form Form2
    ScaleHeight     =   7965
    ScaleWidth      =   11925
    StartUpPosition =   2  'CenterScreen
+   Begin VB.CommandButton cmdAtualizar 
+      Caption         =   "Atualizar"
+      Height          =   795
+      Left            =   7540
+      TabIndex        =   55
+      Top             =   6870
+      Width           =   1215
+   End
+   Begin VB.CommandButton cmdExcluir 
+      Caption         =   "Excluir"
+      Height          =   795
+      Left            =   2565
+      TabIndex        =   54
+      Top             =   6870
+      Width           =   1215
+   End
    Begin VB.CommandButton cmdTeste 
       Caption         =   "Teste"
       Height          =   465
@@ -41,7 +57,7 @@ Begin VB.Form Form2
    Begin VB.CommandButton cmdCadastrar 
       Caption         =   "Cadastrar"
       Height          =   795
-      Left            =   6285
+      Left            =   6305
       TabIndex        =   49
       Top             =   6870
       Width           =   1215
@@ -536,13 +552,15 @@ Private Sub cmdCadastrar_Click()
     If novoPet Then
     
         strQuery = "SELECT ID FROM Clientes "
-        strQuery = strQuery & "WHERE Nome = '" & txtNomeCliente.Text & "'"
+        strQuery = strQuery & "WHERE Cpf LIKE '%" & txtCpf.Text & "%'"
         
         Set cursor = New ADODB.Recordset
         
         cursor.Open strQuery, AbreConn
         
         txtCliente.Text = cursor.Fields(0).Value
+        
+        cursor.MoveNext
         
         cursor.Close
         
@@ -554,12 +572,22 @@ Private Sub cmdCadastrar_Click()
         strQuery = strQuery & "WHERE c.id = " & txtCliente.Text
         
         cursor.Open strQuery, AbreConn
+        j = 0
+        Do Until cursor.EOF
+            j = j + 1
+            cursor.MoveNext
+        Loop
         
-        MsgBox cursor.RecordCount
-                               
-        CadastrarNovoPet txtCliente.Text
+        'MsgBox i
         
         cursor.Close
+                             
+        If i < 5 Then
+            CadastrarNovoPet txtCliente.Text
+        Else
+            MsgBox "Número máximo de usuários já cadastrado"
+            Exit Sub
+        End If
         
     Else
         Cadastrar
@@ -577,6 +605,22 @@ Private Sub cmdConsultar_Click()
         
     looping = False
     cmdNovoPet.Visible = True
+    
+    strQuery = "SELECT Id FROM Clientes "
+    strQuery = strQuery & " WHERE Nome LIKE '%" & UCase(Trim(txtNomeCliente.Text)) & "%' "
+    
+    Set cursor = New ADODB.Recordset
+    cursor.Open strQuery, AbreConn
+    cursor.MoveNext
+    
+    If Not cursor.EOF Then
+        cmdLimpar_Click
+        MsgBox "mais de um usuário cadastrado, especifique melhor o nome!", vbExclamation, " Alerta!"
+        Exit Sub
+    End If
+    
+    cursor.Close
+    
     If Trim(txtNomeCliente.Text) = "" And looping Then
         MsgBox "Digite um código de cliente válido!", vbExclamation, " Alerta!"
     Else
@@ -588,9 +632,11 @@ Private Sub cmdConsultar_Click()
         strQuery = strQuery & " ON c.id = pd.dono "
         strQuery = strQuery & " WHERE c.nome LIKE '%" & UCase(Trim(txtNomeCliente.Text)) & "%' "
              
-        Set cursor = New ADODB.Recordset
+        'Set cursor = New ADODB.Recordset
         
         cursor.Open strQuery, AbreConn
+        
+        
           
         If cursor.EOF Then
             
@@ -617,7 +663,7 @@ Private Sub cmdConsultar_Click()
             txtCliente.Enabled = False
             
         End If
-        
+        i = 0
         Do Until cursor.EOF
         
             i = i + 1
@@ -673,6 +719,7 @@ Private Sub cmdConsultar_Click()
                     txtRaca3.Text = raca(i)
                     txtSexo3.Text = sexo(i)
                     txtNascimento3.Text = nascimento(i)
+                    
                 Case 4
                     
                     SSTab1.TabEnabled(4) = True
@@ -713,6 +760,8 @@ Private Sub cmdConsultar_Click()
             
             cursor.MoveNext
             
+            
+            
         Loop
         
         cursor.Close
@@ -725,8 +774,18 @@ Private Sub cmdConsultar_Click()
         End If
     End If
     
+    cmdExcluir.Enabled = False
+    cmdAtualizar.Enabled = False
+    
 End Sub
 
+'Excluir
+
+Private Sub cmdExcluir_Click()
+        
+    MsgBox "Já era!"
+    
+End Sub
 
 Private Sub cmdLimpar_Click()
 
@@ -734,7 +793,6 @@ Private Sub cmdLimpar_Click()
     txtCpf.Text = ""
     txtNomeCliente.Text = ""
     txtEndereco.Text = ""
-    
     
     txtNome.Text = ""
     txtRaca.Text = ""
@@ -745,8 +803,8 @@ Private Sub cmdLimpar_Click()
     For i = 2 To 5
     
         SSTab1.Tab = 1
+        
         If InStr(SSTab1.Caption, "Pet") = 1 Then
-           
             SSTab1.TabVisible(i) = False
         End If
         
@@ -756,6 +814,8 @@ Private Sub cmdLimpar_Click()
     cmdConsultar.Enabled = True
     cmdCadastrar.Enabled = True
     cmdLimpar.Enabled = False
+    cmdExcluir.Enabled = False
+    cmdAtualizar.Enabled = False
     cmdNovoPet.Visible = False
 End Sub
 
@@ -778,13 +838,14 @@ Private Sub cmdNovoPet_Click()
     
 End Sub
 
+'Botão pra testes
 Private Sub cmdTeste_Click()
-    Dim dateContent As String
-    dateContent = strData
-    
-    txtNome.Text = "OK"
-    
-    MsgBox dateContent
+'    Dim dateContent As String
+'    dateContent = strData
+'
+'    txtNome.Text = "OK"
+'
+'    MsgBox dateContent
     
 End Sub
 
@@ -878,7 +939,7 @@ cmdLimpar_Click
 
     
 End Sub
-
+'Adicionar pet
 Sub CadastrarNovoPet(ByVal id As Integer)
     
     Dim pet As pet
@@ -911,7 +972,9 @@ Sub CadastrarNovoPet(ByVal id As Integer)
     strQuery = strQuery & "WHERE Nome = '" & pet.nome & "' "
     strQuery = strQuery & "AND Raca = '" & pet.raca & "' "
     strQuery = strQuery & "AND DataNascimento = '" & strData & "' "
-
+    
+    
+    
     cursor.Open strQuery, AbreConn
 
     petId = cursor.Fields(0).Value
