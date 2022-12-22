@@ -595,7 +595,6 @@ Private Sub cmdCadastrar_Click()
 End Sub
 
 Private Sub cmdConsultar_Click()
-
      
     Dim pets() As String
     Dim raca() As String
@@ -611,11 +610,18 @@ Private Sub cmdConsultar_Click()
     
     Set cursor = New ADODB.Recordset
     cursor.Open strQuery, AbreConn
+    
+    If cursor.EOF Then
+        cmdLimpar_Click
+        MsgBox "Nenhum usuário cadastrado com esse nome!", vbExclamation, " Alerta!"
+        Exit Sub
+    End If
+    
     cursor.MoveNext
     
     If Not cursor.EOF Then
         cmdLimpar_Click
-        MsgBox "mais de um usuário cadastrado, especifique melhor o nome!", vbExclamation, " Alerta!"
+        MsgBox "Mais de um usuário cadastrado, especifique melhor o nome!", vbExclamation, " Alerta!"
         Exit Sub
     End If
     
@@ -774,17 +780,84 @@ Private Sub cmdConsultar_Click()
         End If
     End If
     
-    cmdExcluir.Enabled = False
-    cmdAtualizar.Enabled = False
+    cmdExcluir.Enabled = True
+    cmdAtualizar.Enabled = True
     
 End Sub
 
 'Excluir
 
 Private Sub cmdExcluir_Click()
-        
-    MsgBox "Já era!"
     
+    Dim res
+    res = Confirma("Deseja realmente excluir o cliente?")
+    
+    If res = 0 Then
+        Exit Sub
+    End If
+    
+    ' id clientes
+    Dim idCliente As Integer
+    Dim idPet() As Integer
+    
+    strQuery = "SELECT ID FROM Clientes "
+    strQuery = strQuery & "WHERE Cpf LIKE '%" & Trim(txtCpf.Text) & "%'"
+    
+    Set cursor = New ADODB.Recordset
+    
+    cursor.Open strQuery, AbreConn
+    idCliente = cursor.Fields(0).Value
+    
+    cursor.Close
+    
+    strQuery = "SELECT pets.id FROM pets "
+    strQuery = strQuery & "JOIN petsdonos pd  "
+    strQuery = strQuery & "ON pets.id  =  pd.pet "
+    strQuery = strQuery & "WHERE  pd.dono = " & idCliente
+    
+    cursor.Open strQuery, AbreConn
+    ' guardar id pets
+    ind = 0
+    
+    Do Until cursor.EOF
+    
+        ind = ind + 1
+        ReDim Preserve idPet(1 To ind)
+        idPet(ind) = cursor.Fields(0).Value
+        
+    cursor.MoveNext
+    Loop
+    
+    cursor.Close
+    
+    strQuery = "DELETE PetsDonos WHERE Dono = " & idCliente
+
+    Set conn = AbreConn
+    conn.Execute strQuery
+    conn.Close
+    
+    For ix = 1 To UBound(idPet)
+        
+        strQuery = "DELETE Pets WHERE Id = " & idPet(ix)
+        Set conn = AbreConn
+        conn.Execute strQuery
+        conn.Close
+        
+'        MsgBox idPet(ix)
+        
+    Next ix
+    
+    strQuery = "DELETE Clientes WHERE Id = " & idCliente
+    Set conn = AbreConn
+    conn.Execute strQuery
+    conn.Close
+
+'    MsgBox "Já era! " & idCliente
+
+MsgBox "Cliente excluído com sucesso!", vbExclamation, " Alerta!"
+
+cmdLimpar_Click
+
 End Sub
 
 Private Sub cmdLimpar_Click()
@@ -817,10 +890,10 @@ Private Sub cmdLimpar_Click()
     cmdExcluir.Enabled = False
     cmdAtualizar.Enabled = False
     cmdNovoPet.Visible = False
+    
 End Sub
 
 Private Sub cmdNovoPet_Click()
-    
     
 
     SSTab1.Tab = 1
@@ -840,12 +913,10 @@ End Sub
 
 'Botão pra testes
 Private Sub cmdTeste_Click()
-'    Dim dateContent As String
-'    dateContent = strData
-'
-'    txtNome.Text = "OK"
-'
-'    MsgBox dateContent
+    Dim res
+    res = Confirma("Deseja realmente excluir o cliente?")
+    MsgBox res
+    
     
 End Sub
 
@@ -989,5 +1060,29 @@ Sub CadastrarNovoPet(ByVal id As Integer)
     cmdLimpar_Click
     
 End Sub
+
+Function Confirma(strMensagem) As Integer
+
+    Confirma = False
+
+    Const MB_OK = 0, MB_OKCANCEL = 1
+    Const MB_YESNOCANCEL = 3, MB_YESNO = 4
+    Const MB_ICONSTOP = 16, MB_ICONQUESTION = 32
+    Const MB_ICONEXCLAMATION = 48, MB_ICONINFORMATION = 64
+    Const MB_DEFBUTTON2 = 256, IDYES = 6, IDNO = 7
+
+    Dim DgDef, msg, response, Title
+
+    Title = "Confirmação"
+
+    DgDef = vbYesNo + vbQuestion + MB_DEFBUTTON2
+
+    resposta = MsgBox(strMensagem, DgDef, Title)
+    
+    If resposta = IDYES Then
+        Confirma = True
+    End If
+
+End Function
 
 
