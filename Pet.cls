@@ -11,6 +11,7 @@ Attribute VB_Exposed = False
 Public nome As String
 Public raca As String
 Public sexo As String
+Public historico As String
 Public nascimento As String
 
 
