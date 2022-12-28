@@ -1,9 +1,9 @@
 VERSION 5.00
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "MSMASK32.OCX"
-Begin VB.Form Form2 
+Begin VB.Form TelaPrincipal 
    BorderStyle     =   1  'Fixed Single
-   Caption         =   "Tela Principal"
+   Caption         =   "Cliínica Veterinária Totó"
    ClientHeight    =   7965
    ClientLeft      =   45
    ClientTop       =   390
@@ -72,95 +72,94 @@ Begin VB.Form Form2
       _ExtentY        =   11404
       _Version        =   393216
       Tabs            =   6
-      Tab             =   2
       TabsPerRow      =   6
       TabHeight       =   520
       TabCaption(0)   =   "Cliente"
       TabPicture(0)   =   "Form2.frx":0000
-      Tab(0).ControlEnabled=   0   'False
+      Tab(0).ControlEnabled=   -1  'True
       Tab(0).Control(0)=   "lblCliente"
+      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).Control(1)=   "lblEndereco"
+      Tab(0).Control(1).Enabled=   0   'False
       Tab(0).Control(2)=   "lblCpf"
+      Tab(0).Control(2).Enabled=   0   'False
       Tab(0).Control(3)=   "lblNomeCliente"
+      Tab(0).Control(3).Enabled=   0   'False
       Tab(0).Control(4)=   "txtCliente"
+      Tab(0).Control(4).Enabled=   0   'False
       Tab(0).Control(5)=   "txtNomeCliente"
+      Tab(0).Control(5).Enabled=   0   'False
       Tab(0).Control(6)=   "txtEndereco"
+      Tab(0).Control(6).Enabled=   0   'False
       Tab(0).Control(7)=   "txtCpf"
+      Tab(0).Control(7).Enabled=   0   'False
       Tab(0).Control(8)=   "cmdNovoPet"
+      Tab(0).Control(8).Enabled=   0   'False
       Tab(0).ControlCount=   9
       TabCaption(1)   =   "Pet"
       TabPicture(1)   =   "Form2.frx":001C
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "Label1"
-      Tab(1).Control(1)=   "Label2"
-      Tab(1).Control(2)=   "Label3"
-      Tab(1).Control(3)=   "txtNas"
+      Tab(1).Control(0)=   "txtHistorico1"
+      Tab(1).Control(1)=   "txtNascimento"
+      Tab(1).Control(2)=   "txtSexo"
+      Tab(1).Control(3)=   "txtRaca"
       Tab(1).Control(4)=   "txtNome"
-      Tab(1).Control(5)=   "txtRaca"
-      Tab(1).Control(6)=   "txtSexo"
-      Tab(1).Control(7)=   "txtNascimento"
-      Tab(1).Control(8)=   "txtHistorico1"
+      Tab(1).Control(5)=   "txtNas"
+      Tab(1).Control(6)=   "Label3"
+      Tab(1).Control(7)=   "Label2"
+      Tab(1).Control(8)=   "Label1"
       Tab(1).ControlCount=   9
       TabCaption(2)   =   "Pet 2"
       TabPicture(2)   =   "Form2.frx":0038
-      Tab(2).ControlEnabled=   -1  'True
-      Tab(2).Control(0)=   "Label4"
-      Tab(2).Control(0).Enabled=   0   'False
-      Tab(2).Control(1)=   "Label5"
-      Tab(2).Control(1).Enabled=   0   'False
-      Tab(2).Control(2)=   "Label6"
-      Tab(2).Control(2).Enabled=   0   'False
-      Tab(2).Control(3)=   "Label7"
-      Tab(2).Control(3).Enabled=   0   'False
+      Tab(2).ControlEnabled=   0   'False
+      Tab(2).Control(0)=   "txtHistorico2"
+      Tab(2).Control(1)=   "txtNome2"
+      Tab(2).Control(2)=   "txtRaca2"
+      Tab(2).Control(3)=   "txtSexo2"
       Tab(2).Control(4)=   "txtNascimento2"
-      Tab(2).Control(4).Enabled=   0   'False
-      Tab(2).Control(5)=   "txtSexo2"
-      Tab(2).Control(5).Enabled=   0   'False
-      Tab(2).Control(6)=   "txtRaca2"
-      Tab(2).Control(6).Enabled=   0   'False
-      Tab(2).Control(7)=   "txtNome2"
-      Tab(2).Control(7).Enabled=   0   'False
-      Tab(2).Control(8)=   "txtHistorico2"
-      Tab(2).Control(8).Enabled=   0   'False
+      Tab(2).Control(5)=   "Label7"
+      Tab(2).Control(6)=   "Label6"
+      Tab(2).Control(7)=   "Label5"
+      Tab(2).Control(8)=   "Label4"
       Tab(2).ControlCount=   9
       TabCaption(3)   =   "Pet 3"
       TabPicture(3)   =   "Form2.frx":0054
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "Label8"
-      Tab(3).Control(1)=   "Label9"
-      Tab(3).Control(2)=   "Label10"
-      Tab(3).Control(3)=   "Label11"
+      Tab(3).Control(0)=   "txtHistorico3"
+      Tab(3).Control(1)=   "txtNome3"
+      Tab(3).Control(2)=   "txtRaca3"
+      Tab(3).Control(3)=   "txtSexo3"
       Tab(3).Control(4)=   "txtNascimento3"
-      Tab(3).Control(5)=   "txtSexo3"
-      Tab(3).Control(6)=   "txtRaca3"
-      Tab(3).Control(7)=   "txtNome3"
-      Tab(3).Control(8)=   "txtHistorico3"
+      Tab(3).Control(5)=   "Label11"
+      Tab(3).Control(6)=   "Label10"
+      Tab(3).Control(7)=   "Label9"
+      Tab(3).Control(8)=   "Label8"
       Tab(3).ControlCount=   9
       TabCaption(4)   =   "Pet 4"
       TabPicture(4)   =   "Form2.frx":0070
       Tab(4).ControlEnabled=   0   'False
-      Tab(4).Control(0)=   "Label12"
-      Tab(4).Control(1)=   "Label13"
-      Tab(4).Control(2)=   "Label14"
-      Tab(4).Control(3)=   "Label15"
+      Tab(4).Control(0)=   "txtHistorico4"
+      Tab(4).Control(1)=   "txtNome4"
+      Tab(4).Control(2)=   "txtRaca4"
+      Tab(4).Control(3)=   "txtSexo4"
       Tab(4).Control(4)=   "txtNascimento4"
-      Tab(4).Control(5)=   "txtSexo4"
-      Tab(4).Control(6)=   "txtRaca4"
-      Tab(4).Control(7)=   "txtNome4"
-      Tab(4).Control(8)=   "txtHistorico4"
+      Tab(4).Control(5)=   "Label15"
+      Tab(4).Control(6)=   "Label14"
+      Tab(4).Control(7)=   "Label13"
+      Tab(4).Control(8)=   "Label12"
       Tab(4).ControlCount=   9
       TabCaption(5)   =   "Pet 5"
       TabPicture(5)   =   "Form2.frx":008C
       Tab(5).ControlEnabled=   0   'False
-      Tab(5).Control(0)=   "Label16"
-      Tab(5).Control(1)=   "Label17"
-      Tab(5).Control(2)=   "Label18"
-      Tab(5).Control(3)=   "Label19"
+      Tab(5).Control(0)=   "txtHistorico5"
+      Tab(5).Control(1)=   "txtNome5"
+      Tab(5).Control(2)=   "txtRaca5"
+      Tab(5).Control(3)=   "txtSexo5"
       Tab(5).Control(4)=   "txtNascimento5"
-      Tab(5).Control(5)=   "txtSexo5"
-      Tab(5).Control(6)=   "txtRaca5"
-      Tab(5).Control(7)=   "txtNome5"
-      Tab(5).Control(8)=   "txtHistorico5"
+      Tab(5).Control(5)=   "Label19"
+      Tab(5).Control(6)=   "Label18"
+      Tab(5).Control(7)=   "Label17"
+      Tab(5).Control(8)=   "Label16"
       Tab(5).ControlCount=   9
       Begin VB.TextBox txtHistorico5 
          Height          =   3375
@@ -185,7 +184,7 @@ Begin VB.Form Form2
       End
       Begin VB.TextBox txtHistorico2 
          Height          =   3375
-         Left            =   7710
+         Left            =   -67290
          TabIndex        =   57
          Top             =   1530
          Width           =   3525
@@ -200,7 +199,7 @@ Begin VB.Form Form2
       Begin VB.CommandButton cmdNovoPet 
          Caption         =   "Novo Pet"
          Height          =   525
-         Left            =   -70020
+         Left            =   4980
          TabIndex        =   53
          Top             =   5220
          Visible         =   0   'False
@@ -221,28 +220,28 @@ Begin VB.Form Form2
       End
       Begin VB.TextBox txtNome2 
          Height          =   375
-         Left            =   3990
+         Left            =   -71010
          TabIndex        =   43
          Top             =   1600
          Width           =   3075
       End
       Begin VB.TextBox txtRaca2 
          Height          =   375
-         Left            =   3990
+         Left            =   -71010
          TabIndex        =   42
          Top             =   2400
          Width           =   3075
       End
       Begin VB.TextBox txtSexo2 
          Height          =   375
-         Left            =   3990
+         Left            =   -71010
          TabIndex        =   41
          Top             =   3200
          Width           =   3075
       End
       Begin VB.TextBox txtNascimento2 
          Height          =   375
-         Left            =   3990
+         Left            =   -71010
          TabIndex        =   40
          Top             =   4000
          Width           =   1400
@@ -354,7 +353,7 @@ Begin VB.Form Form2
       End
       Begin VB.TextBox txtCpf 
          Height          =   345
-         Left            =   -71010
+         Left            =   3990
          MaxLength       =   11
          TabIndex        =   8
          Top             =   2400
@@ -362,21 +361,21 @@ Begin VB.Form Form2
       End
       Begin VB.TextBox txtEndereco 
          Height          =   345
-         Left            =   -71010
+         Left            =   3990
          TabIndex        =   6
          Top             =   4000
          Width           =   4145
       End
       Begin VB.TextBox txtNomeCliente 
          Height          =   345
-         Left            =   -71010
+         Left            =   3990
          TabIndex        =   5
          Top             =   3200
          Width           =   4145
       End
       Begin VB.TextBox txtCliente 
          Height          =   345
-         Left            =   -71010
+         Left            =   3990
          Locked          =   -1  'True
          MaxLength       =   4
          TabIndex        =   1
@@ -387,7 +386,7 @@ Begin VB.Form Form2
       Begin VB.Label Label7 
          Caption         =   "Nome"
          Height          =   255
-         Left            =   2850
+         Left            =   -72150
          TabIndex        =   47
          Top             =   1650
          Width           =   915
@@ -395,7 +394,7 @@ Begin VB.Form Form2
       Begin VB.Label Label6 
          Caption         =   "Raça"
          Height          =   225
-         Left            =   2850
+         Left            =   -72150
          TabIndex        =   46
          Top             =   2445
          Width           =   915
@@ -403,7 +402,7 @@ Begin VB.Form Form2
       Begin VB.Label Label5 
          Caption         =   "Sexo"
          Height          =   225
-         Left            =   2850
+         Left            =   -72150
          TabIndex        =   45
          Top             =   3255
          Width           =   915
@@ -411,7 +410,7 @@ Begin VB.Form Form2
       Begin VB.Label Label4 
          Caption         =   "Nascimento"
          Height          =   255
-         Left            =   2850
+         Left            =   -72150
          TabIndex        =   44
          Top             =   4050
          Width           =   915
@@ -547,7 +546,7 @@ Begin VB.Form Form2
       Begin VB.Label lblNomeCliente 
          Caption         =   "Nome"
          Height          =   195
-         Left            =   -72150
+         Left            =   2850
          TabIndex        =   7
          Top             =   3255
          Width           =   915
@@ -555,7 +554,7 @@ Begin VB.Form Form2
       Begin VB.Label lblCpf 
          Caption         =   "CPF"
          Height          =   195
-         Left            =   -72150
+         Left            =   2850
          TabIndex        =   4
          Top             =   2445
          Width           =   915
@@ -563,7 +562,7 @@ Begin VB.Form Form2
       Begin VB.Label lblEndereco 
          Caption         =   "Endereço"
          Height          =   195
-         Left            =   -72150
+         Left            =   2850
          TabIndex        =   3
          Top             =   4050
          Width           =   915
@@ -571,7 +570,7 @@ Begin VB.Form Form2
       Begin VB.Label lblCliente 
          Caption         =   "Cliente"
          Height          =   195
-         Left            =   -72150
+         Left            =   2850
          TabIndex        =   2
          Top             =   1650
          Visible         =   0   'False
@@ -579,7 +578,7 @@ Begin VB.Form Form2
       End
    End
 End
-Attribute VB_Name = "Form2"
+Attribute VB_Name = "TelaPrincipal"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
@@ -588,6 +587,12 @@ Dim strQuery As String
 Dim conn As Object
 Dim cursor As ADODB.Recordset
 Dim novoPet As Boolean
+Dim clienteId, petId As Integer
+
+
+Private Sub cmdAtualizar_Click()
+    Atualizar
+End Sub
 
 Private Sub cmdCadastrar_Click()
     If novoPet Then
@@ -656,6 +661,8 @@ Private Sub cmdConsultar_Click()
         MsgBox "Nenhum usuário cadastrado com esse nome!", vbExclamation, " Alerta!"
         Exit Sub
     End If
+    
+    clienteId = cursor.Fields(0).Value
     
     cursor.MoveNext
     
@@ -732,7 +739,7 @@ Private Sub cmdConsultar_Click()
                     pets(i) = cursor.Fields(0).Value
                     raca(i) = cursor.Fields(1).Value
                     sexo(i) = cursor.Fields(2).Value
-                    historico(i) = cursor.Fields("historico").Value 'IIf(cursor.Fields(4).Value <> Null, cursor.Fields(4).Value, "")
+                    historico(i) = cursor.Fields("historico").Value
                     
                     nascimento(i) = CStr(cursor.Fields(3).Value)
                     
@@ -751,7 +758,7 @@ Private Sub cmdConsultar_Click()
                     pets(i) = cursor.Fields(0).Value
                     raca(i) = cursor.Fields(1).Value
                     sexo(i) = cursor.Fields(2).Value
-                    historico(i) = IIf(cursor.Fields(4).Value <> Null, cursor.Fields(4).Value, "")
+                    historico(i) = cursor.Fields("historico").Value
                     
                     nascimento(i) = CStr(cursor.Fields(3).Value)
                     
@@ -770,7 +777,7 @@ Private Sub cmdConsultar_Click()
                     pets(i) = cursor.Fields(0).Value
                     raca(i) = cursor.Fields(1).Value
                     sexo(i) = cursor.Fields(2).Value
-                    historico(i) = IIf(cursor.Fields(4).Value <> Null, cursor.Fields(4).Value, "")
+                    historico(i) = cursor.Fields("historico").Value
                     
                     nascimento(i) = CStr(cursor.Fields(3).Value)
                     
@@ -789,7 +796,7 @@ Private Sub cmdConsultar_Click()
                     pets(i) = cursor.Fields(0).Value
                     raca(i) = cursor.Fields(1).Value
                     sexo(i) = cursor.Fields(2).Value
-                    historico(i) = IIf(cursor.Fields(4).Value <> Null, cursor.Fields(4).Value, "")
+                    historico(i) = cursor.Fields("historico").Value
                     
                     nascimento(i) = CStr(cursor.Fields(3).Value)
                     
@@ -808,7 +815,7 @@ Private Sub cmdConsultar_Click()
                     pets(i) = cursor.Fields(0).Value
                     raca(i) = cursor.Fields(1).Value
                     sexo(i) = cursor.Fields(2).Value
-                    historico(i) = IIf(cursor.Fields(4).Value <> Null, cursor.Fields(4).Value, "")
+                    historico(i) = cursor.Fields("historico").Value
                     
                     nascimento(i) = CStr(cursor.Fields(3).Value)
                     
@@ -843,6 +850,16 @@ Private Sub cmdConsultar_Click()
     
     cmdExcluir.Enabled = True
     cmdAtualizar.Enabled = True
+    
+    strQuery = "SELECT ID FROM Pets "
+    strQuery = strQuery & "WHERE Nome = '" & txtNome.Text & "' "
+    strQuery = strQuery & "AND Raca = '" & txtRaca.Text & "' "
+    
+    cursor.Open strQuery, AbreConn
+
+    petId = cursor.Fields(0).Value
+
+    cursor.Close
     
 End Sub
 
@@ -995,7 +1012,6 @@ Sub Cadastrar()
     Dim cliente As cliente
     Dim pet As pet
     Dim conn As Object
-    Dim petId As Integer
     Dim dia, mes, ano, strData As String
     
     If txtNome.Text = "" Then
@@ -1071,9 +1087,9 @@ Sub Cadastrar()
     End If
 
 cmdLimpar_Click
-
     
 End Sub
+
 'Adicionar pet
 Sub CadastrarNovoPet(ByVal id As Integer)
     
@@ -1089,7 +1105,7 @@ Sub CadastrarNovoPet(ByVal id As Integer)
     pet.nome = UCase(Trim(txtNome.Text))
     pet.raca = UCase(Trim(txtRaca.Text))
     pet.sexo = UCase(Trim(txtSexo.Text))
-    pet.historico = UCase(Trim(txtHistorico1.Text))
+    pet.historico = Trim(txtHistorico1.Text)
     
     dia = Mid(UCase(Trim(txtNascimento.Text)), 1, 2)
     mes = Mid(UCase(Trim(txtNascimento.Text)), 4, 2)
@@ -1099,8 +1115,6 @@ Sub CadastrarNovoPet(ByVal id As Integer)
 
     pet.nascimento = UCase(Trim(txtNascimento.Text))
 
-'    strQuery = "INSERT INTO pets (nome, raca,sexo,datanascimento) "
-'    strQuery = strQuery & "VALUES('" & pet.nome & "','" & pet.raca & " ',' " & pet.sexo & " ',' " & strData & "') "
 
     strQuery = "INSERT INTO pets (nome, raca,sexo,datanascimento,historico) "
     strQuery = strQuery & "VALUES('" & pet.nome & "','" & pet.raca
@@ -1151,5 +1165,76 @@ Function Confirma(strMensagem) As Integer
     End If
 
 End Function
+
+Sub Atualizar()
+
+    Dim atualPet1, atualPet2, atualPet3, atualPet4, atualPet5 As Boolean
+    Dim cliente As cliente
+    Dim pet, pet2, pet3, pet4, pet5 As pet
+    Dim conn As Object
+    Dim dia, mes, ano, strData As String
+    
+    If txtNome.Text = "" Then
+        atualPet1 = False
+    End If
+    If txtNome2.Text = "" Then
+        atualPet2 = False
+    End If
+    If txtNome3.Text = "" Then
+        atualPet3 = False
+    End If
+    If txtNome4.Text = "" Then
+        atualPet4 = False
+    End If
+    If txtNome5.Text = "" Then
+        atualPet5 = False
+    End If
+
+    
+    Set pet = New pet
+    Set cliente = New cliente
+        
+    cliente.nome = UCase(Trim(txtNomeCliente.Text))
+    cliente.cpf = UCase(Trim(txtCpf.Text))
+    cliente.endereco = UCase(Trim(txtEndereco.Text))
+    
+    strQuery = "UPDATE clientes "
+    strQuery = strQuery & "SET nome = '" & cliente.nome & "', "
+    strQuery = strQuery & "endereco = '" & cliente.endereco & "', "
+    strQuery = strQuery & "cpf = '" & cliente.cpf & "' "
+    strQuery = strQuery & "WHERE ID =" & clienteId
+    
+    Set conn = AbreConn
+    conn.Execute strQuery
+    
+    pet.nome = UCase(Trim(txtNome.Text))
+    pet.raca = UCase(Trim(txtRaca.Text))
+    pet.sexo = UCase(Trim(txtSexo.Text))
+    pet.historico = UCase(Trim(txtHistorico1.Text))
+    
+    dia = Mid(UCase(Trim(txtNascimento.Text)), 1, 2)
+    mes = Mid(UCase(Trim(txtNascimento.Text)), 4, 2)
+    ano = Mid(UCase(Trim(txtNascimento.Text)), 7, 4)
+    
+    strData = ano & "-" & mes & "-" & dia
+
+    pet.nascimento = UCase(Trim(txtNascimento.Text))
+    
+        
+    strQuery = "UPDATE Pets "
+    strQuery = strQuery & "SET nome = '" & pet.nome & "', "
+    strQuery = strQuery & "raca = '" & pet.raca & "', "
+    strQuery = strQuery & "sexo = '" & pet.sexo & "', "
+    strQuery = strQuery & "datanascimento = '" & strData & "', "
+    strQuery = strQuery & "historico = '" & pet.historico & "' "
+    strQuery = strQuery & "WHERE ID =" & petId
+    
+    conn.Execute strQuery
+    
+    MsgBox "OK"
+    
+    cmdLimpar_Click
+    
+End Sub
 
 

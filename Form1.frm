@@ -1,5 +1,5 @@
 VERSION 5.00
-Begin VB.Form Form1 
+Begin VB.Form Login 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Login"
    ClientHeight    =   7155
@@ -62,7 +62,7 @@ Begin VB.Form Form1
       Width           =   3555
    End
 End
-Attribute VB_Name = "Form1"
+Attribute VB_Name = "Login"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
@@ -107,7 +107,7 @@ cursor.Close
 
 If abrir Then
 
-    Form2.Show
+    TelaPrincipal.Show
     Me.Hide
 
 End If
