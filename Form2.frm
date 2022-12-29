@@ -99,67 +99,67 @@ Begin VB.Form TelaPrincipal
       TabCaption(1)   =   "Pet"
       TabPicture(1)   =   "Form2.frx":001C
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "txtHistorico1"
-      Tab(1).Control(1)=   "txtNascimento"
-      Tab(1).Control(2)=   "txtSexo"
-      Tab(1).Control(3)=   "txtRaca"
+      Tab(1).Control(0)=   "Label1"
+      Tab(1).Control(1)=   "Label2"
+      Tab(1).Control(2)=   "Label3"
+      Tab(1).Control(3)=   "txtNas"
       Tab(1).Control(4)=   "txtNome"
-      Tab(1).Control(5)=   "txtNas"
-      Tab(1).Control(6)=   "Label3"
-      Tab(1).Control(7)=   "Label2"
-      Tab(1).Control(8)=   "Label1"
+      Tab(1).Control(5)=   "txtRaca"
+      Tab(1).Control(6)=   "txtSexo"
+      Tab(1).Control(7)=   "txtNascimento"
+      Tab(1).Control(8)=   "txtHistorico1"
       Tab(1).ControlCount=   9
       TabCaption(2)   =   "Pet 2"
       TabPicture(2)   =   "Form2.frx":0038
       Tab(2).ControlEnabled=   0   'False
-      Tab(2).Control(0)=   "txtHistorico2"
-      Tab(2).Control(1)=   "txtNome2"
-      Tab(2).Control(2)=   "txtRaca2"
-      Tab(2).Control(3)=   "txtSexo2"
+      Tab(2).Control(0)=   "Label4"
+      Tab(2).Control(1)=   "Label5"
+      Tab(2).Control(2)=   "Label6"
+      Tab(2).Control(3)=   "Label7"
       Tab(2).Control(4)=   "txtNascimento2"
-      Tab(2).Control(5)=   "Label7"
-      Tab(2).Control(6)=   "Label6"
-      Tab(2).Control(7)=   "Label5"
-      Tab(2).Control(8)=   "Label4"
+      Tab(2).Control(5)=   "txtSexo2"
+      Tab(2).Control(6)=   "txtRaca2"
+      Tab(2).Control(7)=   "txtNome2"
+      Tab(2).Control(8)=   "txtHistorico2"
       Tab(2).ControlCount=   9
       TabCaption(3)   =   "Pet 3"
       TabPicture(3)   =   "Form2.frx":0054
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "txtHistorico3"
-      Tab(3).Control(1)=   "txtNome3"
-      Tab(3).Control(2)=   "txtRaca3"
-      Tab(3).Control(3)=   "txtSexo3"
+      Tab(3).Control(0)=   "Label8"
+      Tab(3).Control(1)=   "Label9"
+      Tab(3).Control(2)=   "Label10"
+      Tab(3).Control(3)=   "Label11"
       Tab(3).Control(4)=   "txtNascimento3"
-      Tab(3).Control(5)=   "Label11"
-      Tab(3).Control(6)=   "Label10"
-      Tab(3).Control(7)=   "Label9"
-      Tab(3).Control(8)=   "Label8"
+      Tab(3).Control(5)=   "txtSexo3"
+      Tab(3).Control(6)=   "txtRaca3"
+      Tab(3).Control(7)=   "txtNome3"
+      Tab(3).Control(8)=   "txtHistorico3"
       Tab(3).ControlCount=   9
       TabCaption(4)   =   "Pet 4"
       TabPicture(4)   =   "Form2.frx":0070
       Tab(4).ControlEnabled=   0   'False
-      Tab(4).Control(0)=   "txtHistorico4"
-      Tab(4).Control(1)=   "txtNome4"
-      Tab(4).Control(2)=   "txtRaca4"
-      Tab(4).Control(3)=   "txtSexo4"
+      Tab(4).Control(0)=   "Label12"
+      Tab(4).Control(1)=   "Label13"
+      Tab(4).Control(2)=   "Label14"
+      Tab(4).Control(3)=   "Label15"
       Tab(4).Control(4)=   "txtNascimento4"
-      Tab(4).Control(5)=   "Label15"
-      Tab(4).Control(6)=   "Label14"
-      Tab(4).Control(7)=   "Label13"
-      Tab(4).Control(8)=   "Label12"
+      Tab(4).Control(5)=   "txtSexo4"
+      Tab(4).Control(6)=   "txtRaca4"
+      Tab(4).Control(7)=   "txtNome4"
+      Tab(4).Control(8)=   "txtHistorico4"
       Tab(4).ControlCount=   9
       TabCaption(5)   =   "Pet 5"
       TabPicture(5)   =   "Form2.frx":008C
       Tab(5).ControlEnabled=   0   'False
-      Tab(5).Control(0)=   "txtHistorico5"
-      Tab(5).Control(1)=   "txtNome5"
-      Tab(5).Control(2)=   "txtRaca5"
-      Tab(5).Control(3)=   "txtSexo5"
+      Tab(5).Control(0)=   "Label16"
+      Tab(5).Control(1)=   "Label17"
+      Tab(5).Control(2)=   "Label18"
+      Tab(5).Control(3)=   "Label19"
       Tab(5).Control(4)=   "txtNascimento5"
-      Tab(5).Control(5)=   "Label19"
-      Tab(5).Control(6)=   "Label18"
-      Tab(5).Control(7)=   "Label17"
-      Tab(5).Control(8)=   "Label16"
+      Tab(5).Control(5)=   "txtSexo5"
+      Tab(5).Control(6)=   "txtRaca5"
+      Tab(5).Control(7)=   "txtNome5"
+      Tab(5).Control(8)=   "txtHistorico5"
       Tab(5).ControlCount=   9
       Begin VB.TextBox txtHistorico5 
          Height          =   3375
@@ -585,9 +585,9 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Dim strQuery As String
 Dim conn As Object
-Dim cursor As ADODB.Recordset
+Dim cursor, curPets As ADODB.Recordset
 Dim novoPet As Boolean
-Dim clienteId, petId As Integer
+Dim clienteId, petId, petId2, petId3, petId4, petId5 As Integer
 
 
 Private Sub cmdAtualizar_Click()
@@ -595,6 +595,7 @@ Private Sub cmdAtualizar_Click()
 End Sub
 
 Private Sub cmdCadastrar_Click()
+
     If novoPet Then
     
         strQuery = "SELECT ID FROM Clientes "
@@ -618,6 +619,7 @@ Private Sub cmdCadastrar_Click()
         strQuery = strQuery & "WHERE c.id = " & txtCliente.Text
         
         cursor.Open strQuery, AbreConn
+        
         j = 0
         Do Until cursor.EOF
             j = j + 1
@@ -646,7 +648,9 @@ Private Sub cmdConsultar_Click()
     Dim historico() As String
     Dim nascimento() As String
     Dim looping As Boolean
-        
+    
+    Set curPets = New ADODB.Recordset
+            
     looping = False
     cmdNovoPet.Visible = True
     
@@ -732,6 +736,7 @@ Private Sub cmdConsultar_Click()
             ReDim Preserve nascimento(1 To i)
             ReDim Preserve sexo(1 To i)
             
+            
             Select Case i
             
                 Case 1
@@ -749,6 +754,16 @@ Private Sub cmdConsultar_Click()
                     
                     txtHistorico1.Text = historico(i)
                     txtNascimento.Text = nascimento(i)
+                    
+                    strQuery = "SELECT ID FROM Pets "
+                    strQuery = strQuery & "WHERE Nome = '" & txtNome.Text & "' "
+                    strQuery = strQuery & "AND Raca = '" & txtRaca.Text & "' "
+                    
+                    curPets.Open strQuery, AbreConn
+                
+                    petId = curPets.Fields(0).Value
+                
+                    curPets.Close
                     
                  Case 2
                     
@@ -769,6 +784,16 @@ Private Sub cmdConsultar_Click()
                     txtHistorico2.Text = historico(i)
                     txtNascimento2.Text = nascimento(i)
                     
+                    strQuery = "SELECT ID FROM Pets "
+                    strQuery = strQuery & "WHERE Nome = '" & txtNome2.Text & "' "
+                    strQuery = strQuery & "AND Raca = '" & txtRaca2.Text & "' "
+                    
+                    curPets.Open strQuery, AbreConn
+                
+                    petId2 = curPets.Fields(0).Value
+                
+                    curPets.Close
+                    
                 Case 3
                     
                     SSTab1.TabEnabled(3) = True
@@ -787,6 +812,16 @@ Private Sub cmdConsultar_Click()
                     
                     txtHistorico3.Text = historico(i)
                     txtNascimento3.Text = nascimento(i)
+                    
+                    strQuery = "SELECT ID FROM Pets "
+                    strQuery = strQuery & "WHERE Nome = '" & txtNome3.Text & "' "
+                    strQuery = strQuery & "AND Raca = '" & txtRaca3.Text & "' "
+                    
+                    curPets.Open strQuery, AbreConn
+                
+                    petId3 = curPets.Fields(0).Value
+                
+                    curPets.Close
                     
                 Case 4
                     
@@ -807,6 +842,16 @@ Private Sub cmdConsultar_Click()
                     txtHistorico4.Text = historico(i)
                     txtNascimento4.Text = nascimento(i)
                     
+                    strQuery = "SELECT ID FROM Pets "
+                    strQuery = strQuery & "WHERE Nome = '" & txtNome4.Text & "' "
+                    strQuery = strQuery & "AND Raca = '" & txtRaca4.Text & "' "
+                    
+                    curPets.Open strQuery, AbreConn
+                
+                    petId4 = curPets.Fields(0).Value
+                
+                    curPets.Close
+                    
                 Case 5
                     
                     SSTab1.TabEnabled(5) = True
@@ -825,6 +870,16 @@ Private Sub cmdConsultar_Click()
                     
                     txtHistorico5.Text = historico(i)
                     txtNascimento5.Text = nascimento(i)
+                    
+                    strQuery = "SELECT ID FROM Pets "
+                    strQuery = strQuery & "WHERE Nome = '" & txtNome5.Text & "' "
+                    strQuery = strQuery & "AND Raca = '" & txtRaca5.Text & "' "
+                    
+                    curPets.Open strQuery, AbreConn
+                
+                    petId5 = curPets.Fields(0).Value
+                
+                    curPets.Close
                     
                 Case Else
                 
@@ -851,15 +906,6 @@ Private Sub cmdConsultar_Click()
     cmdExcluir.Enabled = True
     cmdAtualizar.Enabled = True
     
-    strQuery = "SELECT ID FROM Pets "
-    strQuery = strQuery & "WHERE Nome = '" & txtNome.Text & "' "
-    strQuery = strQuery & "AND Raca = '" & txtRaca.Text & "' "
-    
-    cursor.Open strQuery, AbreConn
-
-    petId = cursor.Fields(0).Value
-
-    cursor.Close
     
 End Sub
 
@@ -969,18 +1015,28 @@ Private Sub cmdLimpar_Click()
     cmdAtualizar.Enabled = False
     cmdNovoPet.Visible = False
     
+'    clienteId = ""
+'    petId = ""
+'    petId2 = ""
+'    petId3 = ""
+'    petId4 = ""
+'    petId5 = ""
+    
+    
 End Sub
 
 Private Sub cmdNovoPet_Click()
   
     SSTab1.Tab = 1
     cmdConsultar.Enabled = False
+    cmdAtualizar.Enabled = False
     cmdCadastrar.Enabled = True
     cmdLimpar.Enabled = True
         
     txtNome.Text = ""
     txtRaca.Text = ""
     txtSexo.Text = ""
+    txtHistorico1 = ""
     txtNascimento.Text = "__/__/____"
     
     novoPet = True
@@ -1058,9 +1114,6 @@ Sub Cadastrar()
         strData = ano & "-" & mes & "-" & dia
 
         pet.nascimento = UCase(Trim(txtNascimento.Text))
-
-'        strQuery = "INSERT INTO pets (nome, raca,sexo,datanascimento) "
-'        strQuery = strQuery & "VALUES('" & pet.nome & "','" & pet.raca & " ',' " & pet.sexo & " ',' " & strData & "') "
         
         strQuery = "INSERT INTO pets (nome, raca,sexo,datanascimento,historico) "
         strQuery = strQuery & "VALUES('" & pet.nome & "','" & pet.raca
@@ -1174,20 +1227,17 @@ Sub Atualizar()
     Dim conn As Object
     Dim dia, mes, ano, strData As String
     
-    If txtNome.Text = "" Then
-        atualPet1 = False
+    If txtNome2.Text <> "" Then
+        atualPet2 = True
     End If
-    If txtNome2.Text = "" Then
-        atualPet2 = False
+    If txtNome3.Text <> "" Then
+        atualPet3 = True
     End If
-    If txtNome3.Text = "" Then
-        atualPet3 = False
+    If txtNome4.Text <> "" Then
+        atualPet4 = True
     End If
-    If txtNome4.Text = "" Then
-        atualPet4 = False
-    End If
-    If txtNome5.Text = "" Then
-        atualPet5 = False
+    If txtNome5.Text <> "" Then
+        atualPet5 = True
     End If
 
     
@@ -1198,6 +1248,7 @@ Sub Atualizar()
     cliente.cpf = UCase(Trim(txtCpf.Text))
     cliente.endereco = UCase(Trim(txtEndereco.Text))
     
+    'Update clientes
     strQuery = "UPDATE clientes "
     strQuery = strQuery & "SET nome = '" & cliente.nome & "', "
     strQuery = strQuery & "endereco = '" & cliente.endereco & "', "
@@ -1207,9 +1258,11 @@ Sub Atualizar()
     Set conn = AbreConn
     conn.Execute strQuery
     
+    'Update Pet 1
     pet.nome = UCase(Trim(txtNome.Text))
     pet.raca = UCase(Trim(txtRaca.Text))
     pet.sexo = UCase(Trim(txtSexo.Text))
+    pet.nascimento = UCase(Trim(txtNascimento.Text))
     pet.historico = UCase(Trim(txtHistorico1.Text))
     
     dia = Mid(UCase(Trim(txtNascimento.Text)), 1, 2)
@@ -1217,9 +1270,6 @@ Sub Atualizar()
     ano = Mid(UCase(Trim(txtNascimento.Text)), 7, 4)
     
     strData = ano & "-" & mes & "-" & dia
-
-    pet.nascimento = UCase(Trim(txtNascimento.Text))
-    
         
     strQuery = "UPDATE Pets "
     strQuery = strQuery & "SET nome = '" & pet.nome & "', "
@@ -1231,8 +1281,125 @@ Sub Atualizar()
     
     conn.Execute strQuery
     
-    MsgBox "OK"
+    'MsgBox "OK"
     
+    'Update Pet 2
+    
+    
+    If atualPet2 Then
+       
+        Set pet2 = New pet
+        
+        pet.nome = UCase(Trim(txtNome2.Text))
+        pet.raca = UCase(Trim(txtRaca2.Text))
+        pet.sexo = UCase(Trim(txtSexo2.Text))
+        pet.nascimento = UCase(Trim(txtNascimento2.Text))
+        pet.historico = UCase(Trim(txtHistorico2.Text))
+        
+        dia = Mid(UCase(Trim(txtNascimento2.Text)), 1, 2)
+        mes = Mid(UCase(Trim(txtNascimento2.Text)), 4, 2)
+        ano = Mid(UCase(Trim(txtNascimento2.Text)), 7, 4)
+        
+        strData = ano & "-" & mes & "-" & dia
+            
+        strQuery = "UPDATE Pets "
+        strQuery = strQuery & "SET nome = '" & pet.nome & "', "
+        strQuery = strQuery & "raca = '" & pet.raca & "', "
+        strQuery = strQuery & "sexo = '" & pet.sexo & "', "
+        strQuery = strQuery & "datanascimento = '" & strData & "', "
+        strQuery = strQuery & "historico = '" & pet.historico & "' "
+        strQuery = strQuery & "WHERE ID =" & petId2
+        
+        conn.Execute strQuery
+        
+    End If
+    
+    'Update Pet 3
+    If atualPet3 Then
+       
+        Set pet3 = New pet
+        
+        pet.nome = UCase(Trim(txtNome3.Text))
+        pet.raca = UCase(Trim(txtRaca3.Text))
+        pet.sexo = UCase(Trim(txtSexo3.Text))
+        pet.nascimento = UCase(Trim(txtNascimento3.Text))
+        pet.historico = UCase(Trim(txtHistorico3.Text))
+        
+        dia = Mid(UCase(Trim(txtNascimento3.Text)), 1, 2)
+        mes = Mid(UCase(Trim(txtNascimento3.Text)), 4, 2)
+        ano = Mid(UCase(Trim(txtNascimento3.Text)), 7, 4)
+        
+        strData = ano & "-" & mes & "-" & dia
+            
+        strQuery = "UPDATE Pets "
+        strQuery = strQuery & "SET nome = '" & pet.nome & "', "
+        strQuery = strQuery & "raca = '" & pet.raca & "', "
+        strQuery = strQuery & "sexo = '" & pet.sexo & "', "
+        strQuery = strQuery & "datanascimento = '" & strData & "', "
+        strQuery = strQuery & "historico = '" & pet.historico & "' "
+        strQuery = strQuery & "WHERE ID =" & petId3
+        
+        conn.Execute strQuery
+        
+    End If
+    'Update Pet 4
+    If atualPet4 Then
+       
+        Set pet4 = New pet
+        
+        pet.nome = UCase(Trim(txtNome4.Text))
+        pet.raca = UCase(Trim(txtRaca4.Text))
+        pet.sexo = UCase(Trim(txtSexo4.Text))
+        pet.nascimento = UCase(Trim(txtNascimento4.Text))
+        pet.historico = UCase(Trim(txtHistorico4.Text))
+        
+        dia = Mid(UCase(Trim(txtNascimento4.Text)), 1, 2)
+        mes = Mid(UCase(Trim(txtNascimento4.Text)), 4, 2)
+        ano = Mid(UCase(Trim(txtNascimento4.Text)), 7, 4)
+        
+        strData = ano & "-" & mes & "-" & dia
+            
+        strQuery = "UPDATE Pets "
+        strQuery = strQuery & "SET nome = '" & pet.nome & "', "
+        strQuery = strQuery & "raca = '" & pet.raca & "', "
+        strQuery = strQuery & "sexo = '" & pet.sexo & "', "
+        strQuery = strQuery & "datanascimento = '" & strData & "', "
+        strQuery = strQuery & "historico = '" & pet.historico & "' "
+        strQuery = strQuery & "WHERE ID =" & petId4
+        
+        conn.Execute strQuery
+        
+    End If
+    
+    'Update Pet 5
+    If atualPet5 Then
+        
+        Set pet5 = New pet
+        
+        pet.nome = UCase(Trim(txtNome5.Text))
+        pet.raca = UCase(Trim(txtRaca5.Text))
+        pet.sexo = UCase(Trim(txtSexo5.Text))
+        pet.nascimento = UCase(Trim(txtNascimento5.Text))
+        pet.historico = UCase(Trim(txtHistorico5.Text))
+        
+        dia = Mid(UCase(Trim(txtNascimento5.Text)), 1, 2)
+        mes = Mid(UCase(Trim(txtNascimento5.Text)), 4, 2)
+        ano = Mid(UCase(Trim(txtNascimento5.Text)), 7, 4)
+        
+        strData = ano & "-" & mes & "-" & dia
+            
+        strQuery = "UPDATE Pets "
+        strQuery = strQuery & "SET nome = '" & pet.nome & "', "
+        strQuery = strQuery & "raca = '" & pet.raca & "', "
+        strQuery = strQuery & "sexo = '" & pet.sexo & "', "
+        strQuery = strQuery & "datanascimento = '" & strData & "', "
+        strQuery = strQuery & "historico = '" & pet.historico & "' "
+        strQuery = strQuery & "WHERE ID =" & petId5
+        
+        conn.Execute strQuery
+        
+    End If
+        
     cmdLimpar_Click
     
 End Sub
